@@ -10,13 +10,13 @@ class WebsiteTasks(TaskSet):
     def login(self):
         self.client.post("/login", {"username": "admin", "password": "admin"})
 
-    @task
+    @task(2)
     def index(self):
         self.client.get("/")
 
-    @task
-    def about(self):
-        self.client.get("/about/")
+    @task(1)
+    def profile(self):
+        self.client.get("/profile")
 
 
 class WebsiteUser(HttpLocust):
